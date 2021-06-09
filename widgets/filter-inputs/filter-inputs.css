@@ -27,3 +27,19 @@
 .pdqcsv-example-values {
 
 }
+
+.pdqcsv-filter-inputs-list .pdqcsv-pill {
+    position: relative;
+}
+
+.pdqcsv-filter-inputs-list .pdqcsv-pill:not(:last-child) {
+    margin-right: 2.5em;
+}
+
+.pdqcsv-filter-inputs-list .pdqcsv-pill:not(:last-child):after {
+    display: block;
+    content: 'and';
+    position: absolute;
+    right: -2em;
+    color: #aaa;
+}
