@@ -1,5 +1,6 @@
 /**
- * A custom jqueryUI widget -- controls to add multiple filter-inputs
+ * A custom jqueryUI widget -- controls to add multiple filter-inputs.
+ * Fires 'multifiltersupdate' event when the filters have been updated.
  * The inputs are:
  * 
  * Example HTML:
@@ -138,6 +139,8 @@ jQuery( function($) {
                 }
 
                 $dialogElement.remove();
+
+                this._triggerUpdateEvent();
             });
     
             function formIsValid() {
@@ -150,6 +153,10 @@ jQuery( function($) {
                     $dialogElement.closest( '.ui-dialog' ).find( '.pdqcsv-modal-submit-button' ).button( 'option', 'disabled', !formIsValid() );
                 }, 10 );
             }
+        },
+
+        _triggerUpdateEvent() {
+            this._trigger( 'update', new Event('update', this._$template[0]) );
         },
 
         /** Adds a new filter "pill" to the list and returns the new pill */
@@ -175,6 +182,7 @@ jQuery( function($) {
         _removeFilter: function( $filterPill ) {
             $filterPill.remove();
             this._toggleFiltersVisibility();
+            this._triggerUpdateEvent();
         },
 
         _removeAllFilters: function() {

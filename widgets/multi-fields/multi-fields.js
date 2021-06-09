@@ -15,7 +15,8 @@ jQuery( function($) {
     options: {
         thingToAdd: 'field',
         propertyOptions: [], // : { label: string, value: string, disabled: boolean }[]
-        initialFields: [] // : { field: string, csvLabel: string }[]
+        initialFields: [], // : { field: string, csvLabel: string }[]
+        filtersElement: null
     },
 
     _create: function() {
@@ -29,6 +30,15 @@ jQuery( function($) {
 
         // add text and behavior for buttons
         this._$template.find( '.pdqcsv-multi-fields-add-field' ).click( () => this._openDialog() );
+        if ( this.options.filtersElement == null ) {
+            this._$template.find( '.pdqcsv-multi-fields-add-fields-from-filters' ).attr( 'disabled', true );
+        } else {
+            this.options.filtersElement.on( 'multifiltersupdate', event => {
+                const numFilters = this.options.filtersElement.multifilters( 'getData' ).length;
+                this._$template.find( '.pdqcsv-multi-fields-add-fields-from-filters' ).attr( 'disabled', numFilters === 0 );
+            });
+            this._$template.find( '.pdqcsv-multi-fields-add-fields-from-filters' ).click( () => this._addFieldsFromFilters() );
+        }
         this._$template.find( '.pdqcsv-multi-fields-add-all-fields' ).click( () => this._addAllFields() );
         this._$template.find( '.pdqcsv-multi-fields-clear-fields' ).click( () => this._removeAllPills() );
 
@@ -195,6 +205,25 @@ jQuery( function($) {
 
         this._setClearAllButtonEnabled();
         return $newPill;
+    },
+
+    _addFieldsFromFilters: function() {
+        // add pills for each of the fields used in the filters
+        // filter out the options which have already been added, and map the array to only the field names
+        const objectFilters = this.options.filtersElement.multifilters( 'getData' ).filter(
+            objectFilter => !this.options.propertyOptions.find( option => option.value === objectFilter.field ).disabled
+        ).map(
+            objectFilter => objectFilter.field
+        );
+        // get just the unique property names, since there could be multiple filters for a single property
+        const uniqueFilterFields = Array.from( new Set(objectFilters) );
+        // for each property, find the option and add it as a pill
+        uniqueFilterFields.forEach( field => {
+            const option = this.options.propertyOptions.find( option => option.value === field );
+            if ( option ) {
+                this._addPill( option.value, option.label, option.label );
+            }
+        });
     },
 
     _addAllFields: function() {

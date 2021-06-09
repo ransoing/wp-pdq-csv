@@ -140,7 +140,7 @@ jQuery( function($) {
                 this._$valueInput.val( '' );
             }
             // only enable the `cast` input if the rule involves an order
-            const disableCast = !!( ruleVal && !ruleVal.match(/[<>]/) && ruleVal != '<>' );
+            const disableCast = !!( ruleVal && (!ruleVal.match(/[<>]/) || ruleVal == '<>') );
             const $castInput = this._$template.find( '.pdqcsv-cast-field input' );
             $castInput.prop( 'disabled', disableCast ).toggleClass( 'disabled', disableCast );
             this._$castSelect.prop( 'disabled', disableCast );

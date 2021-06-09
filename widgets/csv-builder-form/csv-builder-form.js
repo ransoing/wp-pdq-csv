@@ -63,6 +63,13 @@ jQuery( function($) {
             this.options.getProperties().then( propertyOptions => {
                 this._propertyOptions = propertyOptions;
                 this._$contentSection.toggle( true );
+                // initialize filters
+                this._$template.find( '[data-multi-filters]' ).multifilters({
+                    propertyLabel: this.options.propertyLabel,
+                    propertyOptions: this._propertyOptions,
+                    initialFilters: this.options.initialFilters,
+                    objectType: this.options.objectType
+                });
                 // initialize fields
                 this._$template.find( '[data-multi-fields]' ).on( 'multifieldschange', e => {
                     if ( $(e.target).multifields('getData').length > 0 ) {
@@ -73,14 +80,8 @@ jQuery( function($) {
                 }).multifields({
                     thingToAdd: this.options.propertyLabel.toLowerCase(),
                     propertyOptions: this._propertyOptions,
-                    initialFields: this.options.initialFields
-                });
-                // initialize filters
-                this._$template.find( '[data-multi-filters]' ).multifilters({
-                    propertyLabel: this.options.propertyLabel,
-                    propertyOptions: this._propertyOptions,
-                    initialFilters: this.options.initialFilters,
-                    objectType: this.options.objectType
+                    initialFields: this.options.initialFields,
+                    filtersElement: this._$template.find( '[data-multi-filters]' )
                 });
 
                 $('.pdqcsv-export-data').click( () => {
