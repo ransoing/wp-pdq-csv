@@ -16,7 +16,7 @@ require_once( __DIR__ . '/../combobox/combobox.enqueue.php' );
 <?php
 
 // add the js
-wp_enqueue_script( 'pdqcsv-filter-inputs', plugin_dir_url(__FILE__) . 'filter-inputs.js', ['pdqcsv-combobox'] );
+wp_enqueue_script( 'pdqcsv-filter-inputs', plugin_dir_url(__FILE__) . 'filter-inputs.js', ['pdqcsv-combobox'], PDQCSV_VERSION );
 
 // add the css
-wp_enqueue_style( 'pdqcsv-filter-inputs', plugin_dir_url(__FILE__) . 'filter-inputs.css' );
+wp_enqueue_style( 'pdqcsv-filter-inputs', plugin_dir_url(__FILE__) . 'filter-inputs.css', [], PDQCSV_VERSION );

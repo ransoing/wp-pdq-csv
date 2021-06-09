@@ -11,6 +11,6 @@ function enqueueScriptsAndStyles() {
     \pdqcsv\pages\enqueueCommonCss();
 
     // enqueue files for this page
-    wp_enqueue_script( 'pdqcsv-page-current-exports', plugin_dir_url(__FILE__) . 'current-exports.js' );
-    wp_enqueue_style( 'pdqcsv-page-current-exports', plugin_dir_url(__FILE__) . 'current-exports.css', ['pdqcsv-jquery-ui'] );
+    wp_enqueue_script( 'pdqcsv-page-current-exports', plugin_dir_url(__FILE__) . 'current-exports.js', [], PDQCSV_VERSION );
+    wp_enqueue_style( 'pdqcsv-page-current-exports', plugin_dir_url(__FILE__) . 'current-exports.css', ['pdqcsv-jquery-ui'], PDQCSV_VERSION );
 }

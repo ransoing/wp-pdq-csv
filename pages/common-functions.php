@@ -16,7 +16,7 @@ function outputHeader( $pageTitle = false ) {
 
 function enqueueCommonCss() {
 	$pluginRootUrl = plugin_dir_url( realpath(__DIR__) );
-	wp_enqueue_style( 'pdqcsv-jquery-ui-theme',     $pluginRootUrl . 'vendor/jquery-ui/jquery-ui.theme.min.css' );
-	wp_enqueue_style( 'pdqcsv-jquery-ui',           $pluginRootUrl . 'vendor/jquery-ui/jquery-ui.structure.min.css', ['pdqcsv-jquery-ui-theme'] );
-	wp_enqueue_style( 'pdqcsv-page-common', 		$pluginRootUrl . 'pages/common.css' );
+	wp_enqueue_style( 'pdqcsv-jquery-ui-theme',     $pluginRootUrl . 'vendor/jquery-ui/jquery-ui.theme.min.css', [], PDQCSV_VERSION );
+	wp_enqueue_style( 'pdqcsv-jquery-ui',           $pluginRootUrl . 'vendor/jquery-ui/jquery-ui.structure.min.css', ['pdqcsv-jquery-ui-theme'], PDQCSV_VERSION );
+	wp_enqueue_style( 'pdqcsv-page-common', 		$pluginRootUrl . 'pages/common.css', [], PDQCSV_VERSION );
 }

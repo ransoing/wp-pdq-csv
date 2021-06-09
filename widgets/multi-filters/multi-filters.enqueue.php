@@ -17,8 +17,8 @@ require_once( __DIR__ . '/../filter-inputs/filter-inputs.enqueue.php' );
 <?php
 
 // add the js
-wp_enqueue_script( 'pdqcsv-multi-filters', plugin_dir_url(__FILE__) . 'multi-filters.js', ['pdqcsv-combobox','pdqcsv-filter-inputs','jquery-ui-dialog','jquery-ui-button','jquery-ui-mouse'] );
+wp_enqueue_script( 'pdqcsv-multi-filters', plugin_dir_url(__FILE__) . 'multi-filters.js', ['pdqcsv-combobox','pdqcsv-filter-inputs','jquery-ui-dialog','jquery-ui-button','jquery-ui-mouse'], PDQCSV_VERSION );
 
 // add the css
-wp_enqueue_style( 'pdqcsv-dialog', plugin_dir_url(__FILE__) . '../dialog.css', ['pdqcsv-jquery-ui-theme'] );
-wp_enqueue_style( 'pdqcsv-multi-filters', plugin_dir_url(__FILE__) . 'multi-filters.css' );
+wp_enqueue_style( 'pdqcsv-dialog', plugin_dir_url(__FILE__) . '../dialog.css', ['pdqcsv-jquery-ui-theme'], PDQCSV_VERSION );
+wp_enqueue_style( 'pdqcsv-multi-filters', plugin_dir_url(__FILE__) . 'multi-filters.css', [], PDQCSV_VERSION );

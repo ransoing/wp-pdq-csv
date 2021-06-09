@@ -17,8 +17,8 @@ require_once( __DIR__ . '/../pill/pill.enqueue.php' );
 <?php
 
 // add the js
-wp_enqueue_script( 'pdqcsv-multi-fields', plugin_dir_url(__FILE__) . 'multi-fields.js', ['pdqcsv-combobox','pdqcsv-pill','jquery-ui-dialog','jquery-ui-button','jquery-ui-mouse','jquery-ui-sortable'] );
+wp_enqueue_script( 'pdqcsv-multi-fields', plugin_dir_url(__FILE__) . 'multi-fields.js', ['pdqcsv-combobox','pdqcsv-pill','jquery-ui-dialog','jquery-ui-button','jquery-ui-mouse','jquery-ui-sortable'], PDQCSV_VERSION );
 
 // add the css
-wp_enqueue_style( 'pdqcsv-dialog', plugin_dir_url(__FILE__) . '../dialog.css', ['pdqcsv-jquery-ui-theme'] );
-wp_enqueue_style( 'pdqcsv-multi-fields', plugin_dir_url(__FILE__) . 'multi-fields.css' );
+wp_enqueue_style( 'pdqcsv-dialog', plugin_dir_url(__FILE__) . '../dialog.css', ['pdqcsv-jquery-ui-theme'], PDQCSV_VERSION );
+wp_enqueue_style( 'pdqcsv-multi-fields', plugin_dir_url(__FILE__) . 'multi-fields.css', [], PDQCSV_VERSION );

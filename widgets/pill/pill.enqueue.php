@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) or die();
 <?php
 
 // add the js
-wp_enqueue_script( 'pdqcsv-pill', plugin_dir_url(__FILE__) . 'pill.js' );
+wp_enqueue_script( 'pdqcsv-pill', plugin_dir_url(__FILE__) . 'pill.js', [], PDQCSV_VERSION );
 
 // add the css
-wp_enqueue_style( 'pdqcsv-pill', plugin_dir_url(__FILE__) . 'pill.css' );
+wp_enqueue_style( 'pdqcsv-pill', plugin_dir_url(__FILE__) . 'pill.css', [], PDQCSV_VERSION );

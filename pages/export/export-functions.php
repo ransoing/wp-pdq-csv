@@ -15,8 +15,8 @@ function enqueueScriptsAndStyles() {
     \pdqcsv\pages\enqueueCommonCss();
 
     // enqueue files for this page
-    wp_enqueue_script( 'pdqcsv-page-export', plugin_dir_url(__FILE__) . 'export.js', ['pdqcsv-csv-builder-form','pdqcsv-combobox'] );
-    wp_enqueue_style( 'pdqcsv-page-export', plugin_dir_url(__FILE__) . 'export.css', ['pdqcsv-jquery-ui'] );
+    wp_enqueue_script( 'pdqcsv-page-export', plugin_dir_url(__FILE__) . 'export.js', ['pdqcsv-csv-builder-form','pdqcsv-combobox'], PDQCSV_VERSION );
+    wp_enqueue_style( 'pdqcsv-page-export', plugin_dir_url(__FILE__) . 'export.css', ['pdqcsv-jquery-ui'], PDQCSV_VERSION );
 }
 
 /** Takes an array of post types and outputs <option> elements */
