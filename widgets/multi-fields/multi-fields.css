@@ -1,0 +1,29 @@
+.pdqcsv-dialog-column-name {
+    padding: 5px 10px;
+}
+
+.dialog-combobox-label {
+    text-transform: capitalize;
+}
+
+[data-template-part-dialog] form > .ui-widget {
+    margin-bottom: 16px;
+}
+
+.pdqcsv-multi-fields-clear-fields {
+    color: #c00 !important;
+    border-color: #c00 !important;
+}
+
+.pdqcsv-sort-placeholder {
+    background: white;
+    box-sizing: border-box;
+    border: 2px dashed #777;
+    width: 120px;
+    min-height: 38px;
+}
+
+.pdqcsv-field-label-original-name {
+    margin-left: 0.5em;
+    color: #999;
+}

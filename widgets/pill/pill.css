@@ -1,0 +1,83 @@
+.pdqcsv-pills {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 8px;
+    box-shadow: inset 1px 1px 4px 0px rgb(0 0 0 / 15%);
+    background: #fafafa;
+}
+
+.pdqcsv-pill {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 0 0.8em;
+    margin: 4px 8px 4px 0;
+    border-radius: 100px;
+}
+
+.pdqcsv-pill-label {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    padding: 0.8em 4px 0.8em 0;
+    height: 100%;
+}
+
+.ui-sortable .pdqcsv-pill-label {
+    cursor: grab;
+}
+
+.ui-sortable .pdqcsv-pill-label:active {
+    cursor: grabbing;
+}
+
+.ui-sortable .pdqcsv-pill.ui-sortable-helper {
+    box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.15) !important;
+    cursor: grabbing !important;
+}
+
+.pdqcsv-pill-edit {
+    background-image: url( 'data:image/svg+xml;utf8, \
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> \
+        <path stroke-width="0" fill="%23dddddd" d="M7.1 22.5l-7.1 1.4 1.4-7.1 5.6 5.6zm1.4-1.4l11.2-11.2-5.6-5.6-11.2 11.2 5.6 5.6zm9.7-21.1l-2.8 2.8 5.6 5.6 2.8-2.8-5.6-5.6z"/> \
+        </svg>' );
+}
+
+.pdqcsv-pill-remove {
+    background-image: url( 'data:image/svg+xml;utf8, \
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"> \
+        <g stroke-width="4" stroke="%23dddddd"> \
+            <line x1="1" y1="1" x2="19" y2="19" /> \
+            <line x1="19" y1="1" x2="1" y2="19" /> \
+        </g> \
+        </svg>');
+}
+
+.pdqcsv-pill-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 16px;
+    background-color: #999;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    cursor: pointer;
+    background-size: 12px 12px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.pdqcsv-pill-button:hover {
+    background-color: #666;
+}
+.pdqcsv-pill-button:active {
+    background-color: #444;
+}
+

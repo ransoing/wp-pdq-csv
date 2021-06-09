@@ -1,0 +1,27 @@
+/* keep the autocomplete on top of the dialog */
+.ui-autocomplete {
+    z-index: 9999 !important;
+}
+.ui-dialog {
+    z-index: 9998 !important;
+}
+.ui-dialog-content {
+    padding: 1.5em !important;
+}
+.ui-dialog input[type=submit] {
+    display: none;
+}
+.pdqcsv-modal-submit-button {
+    background: #0085ba !important;
+    color: white !important;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    display: none !important;
+    padding: 20px;
+}
+
+[data-template-part-dialog] .custom-combobox,
+[data-template-part-dialog] input {
+    width: 100%;
+}

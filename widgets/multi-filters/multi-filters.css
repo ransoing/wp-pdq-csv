@@ -1,0 +1,16 @@
+
+.pdqcsv-clear-filters-button {
+    color: #c00 !important;
+    border-color: #c00 !important;
+}
+
+.pdqcsv-filter-pill-part {
+    margin-right: 8px;
+    border: 1px dotted #888;
+    padding: 2px 4px;
+    border-radius: 6px;
+}
+
+.pdqcsv-filter-pill-part:last-child {
+    margin-right: 0;
+}

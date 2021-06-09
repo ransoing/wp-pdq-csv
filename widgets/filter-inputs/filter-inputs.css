@@ -1,0 +1,29 @@
+
+.pdqcsv-filter-inputs > * {
+    margin-bottom: 16px;
+}
+
+.pdqcsv-filter-inputs input.disabled {
+    opacity: 0.35;
+}
+
+.pdqcsv-value-field input {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.pdqcsv-example-values .lds-hourglass {
+    width: 40px;
+    height: 40px;
+}
+.pdqcsv-example-values .lds-hourglass:after {
+    border-width: 16px;
+}
+
+.toggle-refresh, .pdqcsv-example-values {
+    display: none;
+}
+
+.pdqcsv-example-values {
+
+}

@@ -1,0 +1,41 @@
+<div>
+    <div data-template-part-form>
+        <div class="pdqcsv-csv-builder-form-loading">
+            <span>Getting available <span data-option-object-label></span> <span data-option-property-label-plural></span>...<br>
+            <div class="lds-hourglass"></div>
+        </div>
+
+        <div class="pdqcsv-csv-builder-form-error"></div>
+
+        <div class="pdqcsv-csv-builder-form-content">
+            <h2>Filters</h2>
+            <p class="pdqcsv-h2-description">
+                Restrict which <span data-option-object-label-plural></span> will be exported.
+            </p>
+            <div data-multi-filters></div>
+
+            <h2>CSV columns</h2>
+            <p class="pdqcsv-h2-description">
+                Choose which
+                <span data-option-object-label></span>
+                <span data-option-property-label-plural></span>
+                will be exported. Drag items to reorder.
+            </p>
+            <div data-multi-fields></div>
+
+            <div class="pdqcsv-csv-builder-buttons">
+                <button class="button pdqcsv-save-settings">Save export settings</button>
+                <button class="button button-primary pdqcsv-export-data" disabled title="You must add at least one CSV column">Export data</button>
+            </div>
+        </div>
+    </div>
+
+    <div data-template-part-export-dialog>
+        <p class="pdqcsv-status">Starting</p>
+        <div class="lds-hourglass pdqcsv-dialog-loading"></div>
+        <p class="pdqcsv-tip">
+            Tip: you may close this and see the status of the export any time on the
+            <a href="?page=wp-pdq-csv-current-exports">Current Exports</a> page
+        </p>
+    </div>
+</div>

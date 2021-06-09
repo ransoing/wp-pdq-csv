@@ -1,0 +1,30 @@
+h1 .pdqcsv-subtitle {
+    font-weight: normal;
+    font-size: 80%;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+h1 .pdqcsv-main-title {
+    font-weight: bold;
+}
+
+h1 .pdqcsv-page-name {
+    margin-top: -0.3em;
+    display: block;
+}
+
+.pdqcsv-title {
+    margin-bottom: 1em !important;
+}
+
+.pdqcsv-example-results {
+    display: block;
+    white-space: nowrap;
+    font-family: monospace;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.3em 0.5em;
+    background: #ddd;
+    border-radius: 0.3em;
+}

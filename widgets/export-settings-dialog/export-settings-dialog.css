@@ -1,0 +1,9 @@
+input[name=new_export_settings_name] {
+    padding: 5px 10px;
+}
+
+.export-settings-content select,
+.export-settings-content input,
+.export-settings-content .custom-combobox {
+    width: 100%;
+}

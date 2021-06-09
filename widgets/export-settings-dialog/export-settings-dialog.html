@@ -1,0 +1,52 @@
+<div>
+    <div data-template-part-load>
+        <div class="export-settings-loading lds-hourglass"></div>
+        <div class="export-settings-error">Error: could not fetch list of saved settings.</div>
+
+        <form class="export-settings-content" name="load">
+            <div class="ui-widget saved-exports-combobox-widget">
+                <label>Select saved settings</label><br>
+                <select name="export_settings_id" data-combobox></select>
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div data-template-part-save>
+        <div class="export-settings-loading lds-hourglass"></div>
+        <div class="export-settings-error">Error: could not fetch list of saved settings.</div>
+
+        <div data-tabs class="export-settings-content">
+            <ul>
+                <li><a href="#tab-export-new">Save new settings</a></li>
+                <li><a href="#tab-export-overwrite">Overwrite existing settings</a></li>
+            </ul>
+    
+            <div id="tab-export-new">
+                <form name="save-new">
+                    <div class="ui-widget">
+                        <label>Enter a descriptive name</label><br>
+                        <input name="new_export_settings_name" class="ui-widget ui-widget-content ui-state-default ui-corner-all" maxlength="100" autocomplete="off">
+                    </div>
+                    <input type="submit">
+                </form>
+            </div>
+
+            <div id="tab-export-overwrite">
+                <form name="overwrite-old">
+                    <div class="ui-widget saved-exports-combobox-widget">
+                        <label>Select saved settings to overwrite</label><br>
+                        <select name="old_export_settings_id" data-combobox></select>
+                    </div>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div data-template-part-saving>
+        <div class="export-settings-loading lds-hourglass"></div>
+        <div class="export-settings-error">Error: could not save settings.</div>
+        <div data-tabs class="export-settings-content">&#10004; Saved!</div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="pdqcsv-filter-inputs">
+    <div class="ui-widget pdqcsv-property-field">
+        <label></label><br>
+        <select name="field"></select>
+    </div>
+
+    <div class="ui-widget pdqcsv-rule-field">
+        <label>Rule</label><br>
+        <select name="rule">
+            <option value="=">equals</option>
+            <option value="&lt;&gt;">does not equal</option>
+            <option value="&gt;">is greater than</option>
+            <option value="&gt;=">is greater than or equal to</option>
+            <option value="&lt;">is less than</option>
+            <option value="&lt;=">is less than or equal to</option>
+            <option value="LIKE">contains</option>
+            <option value="NOT LIKE">does not contain</option>
+            <option value="empty">is empty</option>
+            <option value="not empty">is not empty</option>
+        </select>
+    </div>
+
+    <div class="pdqcsv-value-field">
+        <label>Value</label><br>
+        <input name="value" class="ui-widget ui-widget-content ui-state-default ui-corner-all" autocomplete="off">
+        <a href="javascript:void(0)" class="pdqcsv-toggle">
+            <span class="toggle-show">Show example values</span>
+            <span class="toggle-refresh">Get more example values</span>
+        </a>
+        <div class="pdqcsv-example-values">
+            <div class="lds-hourglass"></div>
+            <div class="pdqcsv-example-results"></div>
+        </div>
+    </div>
+
+    <div class="ui-widget pdqcsv-cast-field">
+        <label>How to compare</label><br>
+        <select name="cast">
+            <option value="alpha">Alphabetically</option>
+            <option value="date">As date/time</option>
+            <option value="number">Numerically</option>
+        </select>
+    </div>
+</div>

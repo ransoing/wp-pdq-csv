@@ -1,0 +1,26 @@
+<div>
+    <div data-template-part-main>
+        <div class="pdqcsv-multi-fields-buttons">
+            <button class="button pdqcsv-multi-fields-add-field">Add a <span data-thing-to-add></span></button>
+            <button class="button pdqcsv-multi-fields-add-fields-from-filters">Add <span data-thing-to-add></span>s used in filters</button>
+            <button class="button pdqcsv-multi-fields-add-all-fields">Add all available <span data-thing-to-add></span>s</button>
+            <button class="button pdqcsv-multi-fields-clear-fields">Clear all</button>
+        </div>
+
+        <div class="pdqcsv-pills"></div>
+    </div>
+
+    <div data-template-part-dialog>
+        <form>
+            <div class="ui-widget">
+                <label class="dialog-combobox-label"></label><br>
+                <select name="field"></select>
+            </div>
+            <div class="ui-widget">
+                <label>Column name to show in the CSV</label><br>
+                <input name="label" class="pdqcsv-dialog-column-name ui-widget ui-widget-content ui-state-default ui-corner-all" autocomplete="off">
+            </div>
+            <input type="submit">
+        </form>
+    </div>
+</div>

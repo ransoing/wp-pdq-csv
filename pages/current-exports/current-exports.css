@@ -1,0 +1,40 @@
+td.status {
+    animation: status-blink 1s infinite;
+}
+
+td.status.finished {
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes status-blink {
+    0% { opacity: 1 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+}
+
+.export-link {
+    display: none;
+}
+
+.pdqcsv-removed {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+table.pdqcsv > tbody > :nth-child(4n + 1),
+table.pdqcsv > tbody > :nth-child(4n + 2) {
+    background: #f9f9f9;
+}
+
+.pdqcsv-info-details {
+    padding: 1.5em;
+    background: rgba(0,0,0,0.07);
+    box-shadow: inset 1px 1px 3px 1px rgb(0 0 0 / 27%);
+    overflow: auto;
+    max-height: 200px;
+}
+
+.debug-info-row {
+    display: none;
+}

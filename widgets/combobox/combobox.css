@@ -1,0 +1,40 @@
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+    background-image: url(
+        'data:image/svg+xml;utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" width="532" height="460"> \
+        <polygon fill="grey" points="530.874,0.5 265.87,459.5 0.866,0.5"/> \
+        </svg>'
+    ) !important;
+    background-repeat: no-repeat !important;
+    background-size: 6px auto !important;
+    background-position: calc( 100% - 8px ) center !important;
+}
+
+.ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ui-autocomplete .ui-menu-item:hover {
+    background: #eee;
+}
+
+.ui-autocomplete .ui-menu-item.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.ui-autocomplete .ui-menu-item.pdqcsv-autocomplete-item-header {
+    pointer-events: none;
+    font-weight: bold;
+    margin-top: 1em;
+    font-size: 115%;
+}
