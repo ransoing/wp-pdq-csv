@@ -1,12 +1,12 @@
 <?php
 /**
  * @package WP PDQ CSV
- * @version 0.0.2
+ * @version 1.0.0
  */
 /*
 Plugin Name: WP PDQ CSV
 Description: A pretty darn quick CSV exporter
-Version: 0.0.2
+Version: 1.0.0
 Author: Ransom Christofferson
 Author URI: https://ransomchristofferson.com
 License: GPLv3
@@ -32,7 +32,7 @@ define( 'PDQCSV_DEBUG_PAGE_SLUG', 'wp-pdq-csv-info' );
 /** A page slug to use to mark whether the user intends to download a CSV. This is not actually associated with a page, since it directly sends CSV data */
 define( 'PDQCSV_DOWNLOAD_CSV_SLUG', 'wp-pdq-csv-download-csv' );
 /** The current version number of the plugin */
-define( 'PDQCSV_VERSION', '0.0.2' );
+define( 'PDQCSV_VERSION', '1.0.0' );
 /** A GET parameter used to determine whether the plugin is currently exporting */
 define( 'PDQCSV_EXPORTING_QUERY_KEY', 'is-exporting' );
 
