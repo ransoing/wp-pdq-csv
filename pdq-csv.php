@@ -1,13 +1,13 @@
 <?php
 /**
- * @package WP PDQ CSV
+ * @package PDQ CSV
  * @version 1.0.0
  */
 /*
-Plugin Name: WP PDQ CSV
+Plugin Name: PDQ CSV
 Description: A pretty darn quick CSV exporter
 Version: 1.0.0
-Author: Ransom Christofferson
+Author: Ransom Christofferson (on behalf of Truckers Against Trafficking)
 Author URI: https://ransomchristofferson.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
