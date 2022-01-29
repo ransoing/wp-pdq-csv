@@ -47,14 +47,14 @@ require_once( __DIR__ . '/../../util/db.php' );
 			foreach( $records as $record ) : ?>
 			<tr>
 				<td>
-					<strong><?php echo $record->name ?></strong><br>
+					<strong><?php echo esc_html( $record->name ) ?></strong><br>
 					<div class="row-actions">
-						<span class="export"><a href="./admin.php?page=wp-pdq-csv&export-settings=<?php echo $record->id ?>">Load export settings</a> | </span>
-						<span class="delete"><a href="javascript:void(0)" class="submitdelete" data-id="<?php echo $record->id ?>">Delete</a></span>
+						<span class="export"><a href="./admin.php?page=wp-pdq-csv&export-settings=<?php echo esc_attr($record->id) ?>">Load export settings</a> | </span>
+						<span class="delete"><a href="javascript:void(0)" class="submitdelete" data-id="<?php echo esc_attr($record->id) ?>">Delete</a></span>
 					</div>
 				</td>
-				<td><?php echo $record->created_by_user ? $record->created_by_user : '(User no longer exists)' ?></td>
-				<td><?php echo $record->last_modified ?></td>
+				<td><?php echo $record->created_by_user ? esc_html( $record->created_by_user ) : '(User no longer exists)' ?></td>
+				<td><?php echo esc_html( $record->last_modified ) ?></td>
 			</tr>
 			<?php endforeach; endif; ?>
 		</tbody>

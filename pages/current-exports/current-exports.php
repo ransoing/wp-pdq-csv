@@ -56,21 +56,21 @@ require_once( __DIR__ . '/../../util/db.php' );
 			<tr><td colspan="4">No current exports found.</td></tr>
 			<?php else :
 			foreach( $records as $record ) : ?>
-			<tr class="export-row" data-initial-status="<?php echo $record->status_step ?>">
+			<tr class="export-row" data-initial-status="<?php echo esc_attr($record->status_step) ?>">
 				<td>
-					<strong><?php echo $record->object_type ?></strong><br>
+					<strong><?php echo esc_html($record->object_type) ?></strong><br>
 					<div class="row-actions">
-						<span class="export-link"><a href="javascript:void(0)" class="pdqcsv-download-csv" data-id="<?php echo $record->id ?>">Download CSV</a> | </span>
-						<span><a href="javascript:void(0)" class="pdqcsv-show-queries" data-id="<?php echo $record->id ?>">Show debug info</a> | </span>
-						<span class="delete"><a href="javascript:void(0)" class="submitdelete" data-id="<?php echo $record->id ?>">Delete</a></span>
+						<span class="export-link"><a href="javascript:void(0)" class="pdqcsv-download-csv" data-id="<?php echo esc_attr($record->id) ?>">Download CSV</a> | </span>
+						<span><a href="javascript:void(0)" class="pdqcsv-show-queries" data-id="<?php echo esc_attr($record->id) ?>">Show debug info</a> | </span>
+						<span class="delete"><a href="javascript:void(0)" class="submitdelete" data-id="<?php echo esc_attr($record->id) ?>">Delete</a></span>
 					</div>
 				</td>
-				<td><?php echo $record->start_time ?></td>
-				<td><?php echo $record->created_by_user ? $record->created_by_user : '(User no longer exists)' ?></td>
-				<td class="status" data-status-for="<?php echo $record->id ?>"></td>
+				<td><?php echo esc_html($record->start_time) ?></td>
+				<td><?php echo $record->created_by_user ? esc_html($record->created_by_user) : '(User no longer exists)' ?></td>
+				<td class="status" data-status-for="<?php echo esc_attr($record->id) ?>"></td>
 			</tr>
-			<tr class="debug-info-row" data-id="<?php echo $record->id ?>">
-				<td colspan="4"><pre class="pdqcsv-info-details"><?php echo "# Database queries used: \n\n " . str_replace( "\\n", "\n", $record->queries ) ?></pre></td>
+			<tr class="debug-info-row" data-id="<?php echo esc_attr($record->id) ?>">
+				<td colspan="4"><pre class="pdqcsv-info-details"><?php echo esc_textarea("# Database queries used: \n\n " . str_replace( "\\n", "\n", $record->queries ) ) ?></pre></td>
 			</tr>
 			<?php endforeach; endif; ?>
 		</tbody>

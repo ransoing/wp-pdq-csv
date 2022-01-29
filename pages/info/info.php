@@ -44,14 +44,14 @@ global $wpdb;
             foreach( $mysqlVars as $mysqlVar ) {
                 ?>
                 <tr>
-                    <td><strong><?php echo $mysqlVar->label ?></strong></td>
+                    <td><strong><?php echo esc_html($mysqlVar->label) ?></strong></td>
                     <td>
                         <?php
                         $result = $wpdb->get_var( "SHOW VARIABLES LIKE '{$mysqlVar->varName}'", 1 );
                         if ( empty($result) ) {
                             echo "Variable not found";
                         } else {
-                            echo "{$result} {$mysqlVar->units}";
+                            echo esc_html( "{$result} {$mysqlVar->units}" );
                         }
                         ?>
                     </td>
