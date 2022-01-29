@@ -56,8 +56,9 @@ function export() {
         throw new \Exception( 'Request body not formatted properly' );
     }
 
+    $objectType = sanitize_text_field( $request->objectType );
     // check the data type to export, and determine the database tables and row names we'll be using
-    $config = _getDatabaseTablesAndColumns( $request->objectType );
+    $config = _getDatabaseTablesAndColumns( $objectType );
 
     // We can't use $wpdb for this job, since $wpdb doesn't offer an option to do multiple queries at once.
     // So, create our own database connection.
@@ -89,7 +90,7 @@ function export() {
      */
 
     // 0. Create an entry in the exports table to track the progress of this export
-    $newRecord = \pdqcsv\util\createNewDbExportsRecord( $request->objectType );
+    $newRecord = \pdqcsv\util\createNewDbExportsRecord( $objectType );
     $tempTableName = $newRecord->temp_table_name;
 
 

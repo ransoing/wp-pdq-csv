@@ -79,16 +79,23 @@ function getPostTypeFields() {
         [ 'comment_count', 'Comment count' ]
     ];
 
+    // validate that the given post type is a valid post type
+    $allPostTypes = array_keys( get_post_types() );
+    $postType = sanitize_text_field( $_GET['postType'] );
+    if ( !in_array($postType, $allPostTypes) ) {
+        exit;
+    };
+
     // get distinct custom fields specifically for this post type
     $preparedQuery = $wpdb->prepare(
         "SELECT DISTINCT meta_key FROM `{$wpdb->postmeta}`
         INNER JOIN `{$wpdb->posts}` ON {$wpdb->postmeta}.post_id = {$wpdb->posts}.ID
         WHERE {$wpdb->posts}.post_type = '%s' ORDER BY meta_key;",
-        $_GET[ 'postType' ]
+        $postType
     );
-    $distinctFields = _getDistinctCustomFields( $wpdb->postmeta, 'meta_id', $_GET['postType'], $preparedQuery );
+    $distinctFields = _getDistinctCustomFields( $wpdb->postmeta, 'meta_id', $postType, $preparedQuery );
 
-    $taxonomyObjects = get_taxonomies( ['object_type' => [$_GET['postType']] ], 'objects' );
+    $taxonomyObjects = get_taxonomies( ['object_type' => [$postType] ], 'objects' );
     $taxonomies = array_map( function($key) use ($taxonomyObjects) {
         $tax = $taxonomyObjects[$key];
         return (object)[
@@ -167,24 +174,26 @@ function getTaxonomyFields() {
  */
 function getExampleValues() {
     global $wpdb;
-    $config = _getDatabaseTablesAndColumns( $_GET['objectType'] );
+    $objectType = sanitize_text_field( $_GET['objectType'] );
+    $field = sanitize_text_field( $_GET['field'] );
+    $config = _getDatabaseTablesAndColumns( $objectType );
     $result;
-    if ( substr($_GET['field'], 0, 8) === 'default.' ) {
-        $field = substr( $_GET['field'], 8 );
+    if ( substr($field, 0, 8) === 'default.' ) {
+        $field = substr( $field, 8 );
         // the field is supposed to be a column name. Escape any backticks.
         $field = str_replace( "`", "``", $field );
         $result = $wpdb->get_results( "SELECT DISTINCT `{$field}` FROM `{$config->objectTable}` WHERE `{$field}` <> '' AND `{$field}` IS NOT NULL ORDER BY RAND() LIMIT 4" );
         $values = array_map( function($row) use ($field) {
             return $row->$field;
         }, $result );
-    } else if ( substr($_GET['field'], 0, 7) === 'custom.' ) {
-        $field = substr( $_GET['field'], 7 );
+    } else if ( substr($field, 0, 7) === 'custom.' ) {
+        $field = substr( $field, 7 );
         $result = $wpdb->get_results( $wpdb->prepare("SELECT DISTINCT `meta_value` FROM `{$config->metaTable}` WHERE `meta_key` = '%s' AND `meta_value` <> '' AND `meta_value` IS NOT NULL ORDER BY RAND() LIMIT 4", $field) );
         $values = array_map( function($row) {
             return $row->meta_value;
         }, $result );
-    } else if ( substr($_GET['field'], 0, 9) === 'taxonomy.' ) {
-        $field = substr( $_GET['field'], 9 );
+    } else if ( substr($field, 0, 9) === 'taxonomy.' ) {
+        $field = substr( $field, 9 );
         $terms = get_terms( array(
             'taxonomy' => $field,
             'hide_empty' => false,

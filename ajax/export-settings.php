@@ -83,6 +83,6 @@ function saveExportSettings() {
  * Requires POST param: `id`. Expects POST data to be in x-form-www-urlencoded format.
  */
 function deleteExportSetting() {
-    \pdqcsv\util\deleteDbSettingsRecord( $_POST['id'] );
+    \pdqcsv\util\deleteDbSettingsRecord( sanitize_text_field($_POST['id']) );
     wp_die();
 }
