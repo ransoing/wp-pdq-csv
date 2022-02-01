@@ -4,7 +4,7 @@ Donate link: https://truckersagainsttrafficking.org/individual-donors/
 Tags: export, csv, database
 Requires at least: 4.9.16
 Tested up to: 5.8
-Stable tag: 0.0.2
+Stable tag: 1.0.0
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

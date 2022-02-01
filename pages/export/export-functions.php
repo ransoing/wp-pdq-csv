@@ -23,7 +23,10 @@ function enqueueScriptsAndStyles() {
 function displayOptionsFromPostTypes( $postTypes, $exceptList = array() ) {
     foreach( $postTypes as $postType ) {
         if ( !in_array($postType->name, $exceptList) ) {
-            echo "<option value='{$postType->name}' data-singlular-name='{$postType->labels->singular_name}'>{$postType->label}</option>";
+            $postName = esc_attr( $postType->name );
+            $singularName = esc_attr( $postType->labels->singular_name );
+            $label = esc_html( $postType->label );
+            echo "<option value='{$postName}' data-singlular-name='{$singularName}'>{$label}</option>";
         }
     }
 }

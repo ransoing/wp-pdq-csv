@@ -9,7 +9,7 @@ function outputHeader( $pageTitle = false ) {
 	?>
 	<h1 class="pdqcsv-title">
 		<span class="pdqcsv-main-title">WP PDQ CSV</span><span class="pdqcsv-subtitle"> &mdash; Pretty darn quick CSV exporter</span><br>
-		<span class="pdqcsv-page-name"><?php if ( $pageTitle ) echo $pageTitle; ?></span>
+		<span class="pdqcsv-page-name"><?php if ( $pageTitle ) echo esc_html($pageTitle); ?></span>
 	</h1>
 	<?php
 }

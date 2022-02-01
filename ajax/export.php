@@ -259,7 +259,7 @@ function export() {
 
     // We've built all the queries we need. Queue them all up. Set a low time limit so that this script will exit shortly after
     // queuing the queries. Otherwise the script will try to wait until the queries are finished before exiting, but we don't need that.
-    echo $newRecord->id . ' ';
+    echo esc_html( $newRecord->id ) . ' ';
     set_time_limit( 1 );
     $mysqli->multi_query( join('; ', $allQueries) );
     $mysqli->close();

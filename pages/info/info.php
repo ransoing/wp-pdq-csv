@@ -23,15 +23,15 @@ global $wpdb;
 		<tbody>
             <tr>
                 <td><strong>PDQ CSV plugin activation error</strong></td>
-                <td><?php echo get_option( 'pdqcsv_activation_error' ) ?></td>
+                <td><?php echo esc_html( get_option('pdqcsv_activation_error') ) ?></td>
             </tr>
 			<tr>
 				<td><strong>PHP timeout limit</strong></td>
-				<td><?php echo ini_get('max_execution_time') ?> seconds</td>
+				<td><?php echo esc_html( ini_get('max_execution_time') ) ?> seconds</td>
             </tr>
             <tr>
                 <td><strong>PHP memory limit</strong></td>
-                <td><?php echo ini_get('memory_limit') ?></td>
+                <td><?php echo esc_html( ini_get('memory_limit') ) ?></td>
             </tr>
             <?php
             $mysqlVars = [
