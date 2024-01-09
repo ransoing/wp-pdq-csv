@@ -6,6 +6,7 @@
  *     <select id="foo">
  *       <option value></option>
  *       <option value="bar">Bar</option>
+ *     </select>
  *   </label>
  * </div>
  * 

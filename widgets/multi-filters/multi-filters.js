@@ -163,7 +163,9 @@ jQuery( function($) {
         _addFilter: function( field, fieldLabel, rule, ruleLabel, value, cast, castLabel ) {
             // add a pill in the added-filters section to keep track of the filters the user has created
             const labelParts = [ fieldLabel, ruleLabel, value, castLabel ? 'Compare ' + castLabel : '' ];
-            const fullLabel = labelParts.filter( part => part && part.length > 0 ).map( part => '<span class="pdqcsv-filter-pill-part">' + part + '</span>' );
+            const fullLabel = labelParts.filter( part => part && part.length > 0 ).map(
+                part => $( '<span class="pdqcsv-filter-pill-part"></span>' ).text( part ).prop( 'outerHTML' )
+            );
             $newPill = $('<div>').pill({
                 data: { field: field, rule: rule, value: value, cast: cast },
                 label: fullLabel,

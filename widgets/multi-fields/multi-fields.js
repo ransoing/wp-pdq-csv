@@ -192,9 +192,11 @@ jQuery( function($) {
         matchingOption.disabled = true;
 
         // add a pill
+        const csvLabelDisplay = $('<span>').text( csvLabel ).html();
         $newPill = $('<div>').pill({
             data: { field: field, csvLabel: csvLabel },
-            label: csvLabel === fieldDisplayLabel ? csvLabel : csvLabel + ' <span class="pdqcsv-field-label-original-name">(' + fieldDisplayLabel + ')</span>',
+            label: csvLabel === fieldDisplayLabel ? csvLabelDisplay : csvLabelDisplay + ' ' +
+                $( '<span class="pdqcsv-field-label-original-name"></span>' ).text( '(' + fieldDisplayLabel + ')' ).prop( 'outerHTML' ),
             showEditButton: true,
             labelAsHtml: true
         })
