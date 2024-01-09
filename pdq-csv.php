@@ -1,12 +1,12 @@
 <?php
 /**
  * @package PDQ CSV
- * @version 1.0.1
+ * @version 2.0.0
  */
 /*
 Plugin Name: PDQ CSV
 Description: A pretty darn quick CSV exporter
-Version: 1.0.1
+Version: 2.0.0
 Author: Ransom Christofferson (on behalf of Truckers Against Trafficking)
 Author URI: https://ransomchristofferson.com
 License: GPLv3
@@ -32,7 +32,7 @@ define( 'PDQCSV_DEBUG_PAGE_SLUG', 'wp-pdq-csv-info' );
 /** A page slug to use to mark whether the user intends to download a CSV. This is not actually associated with a page, since it directly sends CSV data */
 define( 'PDQCSV_DOWNLOAD_CSV_SLUG', 'wp-pdq-csv-download-csv' );
 /** The current version number of the plugin */
-define( 'PDQCSV_VERSION', '1.0.1' );
+define( 'PDQCSV_VERSION', '2.0.0' );
 /** A GET parameter used to determine whether the plugin is currently exporting */
 define( 'PDQCSV_EXPORTING_QUERY_KEY', 'is-exporting' );
 
@@ -40,7 +40,7 @@ define( 'PDQCSV_EXPORTING_QUERY_KEY', 'is-exporting' );
 // check whether the user is performing a CSV download. This must be done on 'init', because otherwise wordpress will output content,
 // and that will mess up the file download
 add_action( 'init', function() {
-	if ( is_admin() && $_GET['page'] === PDQCSV_DOWNLOAD_CSV_SLUG && current_user_can(PDQCSV_REQUIRED_PERMISSION) ) {
+	if ( is_admin() && @$_GET['page'] === PDQCSV_DOWNLOAD_CSV_SLUG && current_user_can(PDQCSV_REQUIRED_PERMISSION) ) {
 		require( __DIR__ . '/util/download-csv.php' );
 		util\downloadCsv();
 		die(); // dont' output anything else after sending csv data!

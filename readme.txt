@@ -3,9 +3,9 @@ Contributors: ransoing
 Donate link: https://truckersagainsttrafficking.org/individual-donors/
 Tags: export, csv, database
 Requires at least: 4.9.16
-Tested up to: 5.8
-Stable tag: 1.0.1
-Requires PHP: 7.0
+Tested up to: 6.4.2
+Stable tag: 2.0.0
+Requires PHP: 8.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

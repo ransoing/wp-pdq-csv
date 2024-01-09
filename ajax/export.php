@@ -153,7 +153,7 @@ function export() {
     // filter on the default fields. This requires a WHERE clause. Compile an array of where-clause parts, then join them with AND and stick a WHERE on the beginning
     $defaultFieldFilters = array_filter( $request->filters, function($filter) { return $filter->fieldType === 'default'; } );
     $whereClauseParts = array_map( function($filter) use ($config) {
-        return _createFilterComparison( "`{$config->objectTable}`.`{$filter->field}`", $filter->rule, $filter->value, $filter->cast );
+        return _createFilterComparison( "`{$config->objectTable}`.`{$filter->field}`", $filter->rule, $filter->value, @$filter->cast );
     }, $defaultFieldFilters );
 
     // filter on taxonomies that use the rule 'does not contain' or 'empty', since these require WHERE
@@ -186,7 +186,7 @@ function export() {
     }
 
     if ( sizeof($whereClauseParts) > 0 ) {
-        $query2 .= 'WHERE ' . join( $whereClauseParts, ' AND ' ). "\n\n";
+        $query2 .= 'WHERE ' . join( ' AND ', $whereClauseParts ). "\n\n";
     }
     
 
@@ -209,7 +209,7 @@ function export() {
     }, $request->fields, array_keys($request->fields) );
 
     // SELECT all requested fields and store in the results table
-    $query3 = "CREATE TABLE " . $newRecord->results_table_name . " AS SELECT " . join( $allColumns, ', ' ) . " FROM `{$config->objectTable}`\n\n";
+    $query3 = "CREATE TABLE " . $newRecord->results_table_name . " AS SELECT " . join( ', ', $allColumns ) . " FROM `{$config->objectTable}`\n\n";
 
     foreach( $request->fields as $i => $field ) {
         if ( $field->fieldType === 'custom' ) {
